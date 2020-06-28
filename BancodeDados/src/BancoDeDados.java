@@ -22,6 +22,7 @@ public class BancoDeDados {
 			}
 		} catch (Exception erro) {
 			erro.printStackTrace();
+			//change from github
 		}
 
 	}
