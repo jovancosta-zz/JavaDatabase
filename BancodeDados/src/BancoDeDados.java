@@ -6,24 +6,21 @@ import java.sql.ResultSet;
 public class BancoDeDados {
 
 	public static void main(String[] args) {
-		System.out.println("teste1");
 		String url = "jdbc:mysql://localhost/java?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 		try {
-			Connection conexao = DriverManager.getConnection(url, "root", "");
-			PreparedStatement pesquisa = conexao.prepareStatement("SELECT * FROM pessoas");
+			Connection con = DriverManager.getConnection(url, "root", "");
+			PreparedStatement search = con.prepareStatement("SELECT * FROM customers");
 
-			ResultSet resultado = pesquisa.executeQuery();
+			ResultSet rs = search.executeQuery();
 
-			while (resultado.next()) {
-				String nome = resultado.getString("nome");
-				String idade = resultado.getString("idade");
-				System.out.println("Nome:" +nome+ " Idade:" +idade);
+			while (rs.next()) {
+				String name = rs.getString("name");
+				String age = rs.getString("age");
+				System.out.println("Name:" +name+ " Age:" +age);
 
 			}
-		} catch (Exception erro) {
-			erro.printStackTrace();
-			//change from github
-			//change from eclipse
+		} catch (Exception error) {
+			error.printStackTrace();
 		}
 
 	}
